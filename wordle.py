@@ -40,8 +40,18 @@ def suggestion_score(word, possible):
 
 def suggestion(words, possible):
     suggestions = [(w, suggestion_score(w, possible)) for w in words]
-    suggestions_sorted = sorted(suggestions, key=lambda t: t[1], reverse=True)
-    return [w for (w, s) in suggestions_sorted[:10]]
+    suggestions_sorted_with_scores = sorted(suggestions, key=lambda t: t[1], reverse=True)[:50]
+    suggestions_sorted = [w for (w, s) in suggestions_sorted_with_scores]
+    suggestions_dedup = []
+    for i in range(len(suggestions_sorted)):
+        is_permutation = False
+        for j in range(i):
+            if set(suggestions_sorted[j]) == set(suggestions_sorted[i]):
+                is_permutation = True
+        if not is_permutation:
+            suggestions_dedup.append(suggestions_sorted[i])
+
+    return suggestions_dedup[:10]
 
 def is_possible(word, allowed, must_appear):
     for i in range(len(word)):
