@@ -32,15 +32,18 @@ def suggestion_score(word, possible):
         for p in possible:
             if c in p:
               break
-        score = score + freq[c]
+        f = freq[c]
+        if c in {'a', 'e', 'i', 'o', 'u'}:
+            f = f / 5
+        score = score + f
     return score
 
 def suggestion(words, possible):
     suggestions = [(w, suggestion_score(w, possible)) for w in words]
     suggestions_sorted = sorted(suggestions, key=lambda t: t[1], reverse=True)
-    return suggestions_sorted[:5]
+    return [w for (w, s) in suggestions_sorted[:10]]
 
-def is_possible(word, allowed):
+def is_possible(word, allowed, must_appear):
     for i in range(len(word)):
         if word[i] not in allowed[i]:
             return False
@@ -49,15 +52,17 @@ def is_possible(word, allowed):
             return False
     return True
 
-def find_possible(words, allowed):
-    return [word for word in words if is_possible(word, allowed)]
+def find_possible(words, allowed, must_appear):
+    return [word for word in words if is_possible(word, allowed, must_appear)]
+
+print(f"How about:", ', '.join(suggestion(words, [])))
 
 while True:
   guess = input("What word did you guess? ")
   for i in range(len(guess)):
       g_char = guess[i]
       res = input(f"What was the colour of character {g_char} (b, y, g)? ")
-      
+
       if res == 'b':
           for j in range(len(guess)):
               if g_char in allowed[j]:
@@ -73,8 +78,7 @@ while True:
       if res == 'g':
           allowed[i] = { g_char }
 
-  possible = find_possible(words, allowed)      
+  possible = find_possible(words, allowed, must_appear)
 
-  print('allowed', allowed)
-  print(f"OK, there are now {len(possible)} possible words:", possible)
-  print(f"How about:", suggestion(possible, possible))
+  print(f"OK, there are now {len(possible)} possible words:", ', '. join(possible))
+  print(f"How about:", ', '.join(suggestion(possible, possible)))
