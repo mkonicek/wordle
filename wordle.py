@@ -21,8 +21,6 @@ def character_frequencies(words):
                 freq[char] = 1
     return freq
 
-# print(words)
-# print(character_frequencies(words))
 words = load_words()
 freq = character_frequencies(words)    
 
@@ -74,27 +72,27 @@ def find_possible(words, allowed, must_appear):
 print(f"How about:", ', '.join(suggestion(words, [])))
 
 while True:
-  guess = input("What word did you guess? ")
-  for i in range(len(guess)):
-      g_char = guess[i]
-      res = input(f"What was the colour of character {g_char} (b, y, g)? ")
+    guess = input("What word did you guess? ")
+    for i in range(len(guess)):
+        g_char = guess[i]
+        res = input(f"What was the colour of character {g_char} (b, y, g)? ")
 
-      if res == 'b':
-          for j in range(len(guess)):
-              if g_char in allowed[j]:
-                  allowed[j].remove(g_char)
+        if res == 'b':
+            for j in range(len(guess)):
+                if g_char in allowed[j]:
+                    allowed[j].remove(g_char)
 
-      if res == 'y':
-          # The yellow character must appear in the word
-          must_appear.add(g_char)
-          # But the yellow character cannot be at that position
-          if g_char in allowed[i]:
-              allowed[i].remove(g_char)
+        if res == 'y':
+            # The yellow character must appear in the word
+            must_appear.add(g_char)
+            # But the yellow character cannot be at that position
+            if g_char in allowed[i]:
+                allowed[i].remove(g_char)
                   
-      if res == 'g':
-          allowed[i] = { g_char }
+        if res == 'g':
+            allowed[i] = { g_char }
 
-  possible = find_possible(words, allowed, must_appear)
+    possible = find_possible(words, allowed, must_appear)
 
-  print(f"OK, there are now {len(possible)} possible words:", ', '. join(possible))
-  print(f"How about:", ', '.join(suggestion(possible, possible)))
+    print(f"OK, there are now {len(possible)} possible words:", ', '. join(possible))
+    print(f"How about:", ', '.join(suggestion(possible, possible)))
