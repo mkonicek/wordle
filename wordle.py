@@ -28,7 +28,7 @@ for i in range(len(allowed)):
 
 def suggestion_score(word, possible):
     score = 0
-    for c in word:
+    for c in set(word):
         for p in possible:
             if c in p:
               break
@@ -57,6 +57,7 @@ while True:
   for i in range(len(guess)):
       g_char = guess[i]
       res = input(f"What was the colour of character {g_char} (b, y, g)? ")
+      
       if res == 'b':
           for j in range(len(guess)):
               if g_char in allowed[j]:
@@ -65,7 +66,7 @@ while True:
       if res == 'y':
           # The yellow character must appear in the word
           must_appear.add(g_char)
-          # But the yellow character cannot at that position
+          # But the yellow character cannot be at that position
           if g_char in allowed[i]:
               allowed[i].remove(g_char)
                   
