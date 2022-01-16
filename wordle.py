@@ -1,3 +1,9 @@
+# Helps solve [Wordle](https://www.powerlanguage.co.uk/wordle) and other similar games.
+#
+# Usage:
+#
+# python3 wordle.py
+
 def load_words():
     words = []
     with open('words.txt') as f:
