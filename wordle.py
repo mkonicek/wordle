@@ -38,7 +38,7 @@ def suggestion_score(word, possible):
               break
         f = freq[c]
         if c in {'a', 'e', 'i', 'o', 'u'}:
-            f = f / 5
+            f = f / 3
         score = score + f
     return score
 
