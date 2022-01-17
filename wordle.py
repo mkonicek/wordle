@@ -4,6 +4,8 @@
 #
 # python3 wordle.py
 
+from suggestion import suggestion
+
 def load_words():
     words = []
     with open('words.txt') as f:
@@ -28,34 +30,7 @@ allowed = [set(), set(), set(), set(), set()]
 must_appear = set()
 for i in range(len(allowed)):
     for c in freq.keys():
-        allowed[i].add(c)
-
-def suggestion_score(word, possible):
-    score = 0
-    for c in set(word):
-        for p in possible:
-            if c in p:
-              break
-        f = freq[c]
-        if c in {'a', 'e', 'i', 'o', 'u'}:
-            f = f / 3
-        score = score + f
-    return score
-
-def suggestion(words, possible):
-    suggestions = [(w, suggestion_score(w, possible)) for w in words]
-    suggestions_sorted_with_scores = sorted(suggestions, key=lambda t: t[1], reverse=True)[:50]
-    suggestions_sorted = [w for (w, s) in suggestions_sorted_with_scores]
-    suggestions_dedup = []
-    for i in range(len(suggestions_sorted)):
-        is_permutation = False
-        for j in range(i):
-            if set(suggestions_sorted[j]) == set(suggestions_sorted[i]):
-                is_permutation = True
-        if not is_permutation:
-            suggestions_dedup.append(suggestions_sorted[i])
-
-    return suggestions_dedup[:10]
+        allowed[i].add(c)  
 
 def is_possible(word, allowed, must_appear):
     for i in range(len(word)):
@@ -69,7 +44,7 @@ def is_possible(word, allowed, must_appear):
 def find_possible(words, allowed, must_appear):
     return [word for word in words if is_possible(word, allowed, must_appear)]
 
-print(f"How about:", ', '.join(suggestion(words, [])))
+print(f"How about:", ', '.join(suggestion(words, [], allowed, freq)))
 
 while True:
     guess = input("What word did you guess? ")
@@ -95,4 +70,4 @@ while True:
     possible = find_possible(words, allowed, must_appear)
 
     print(f"OK, there are now {len(possible)} possible words:", ', '. join(possible))
-    print(f"How about:", ', '.join(suggestion(possible, possible)))
+    print(f"How about:", ', '.join(suggestion(words, possible, allowed, freq)))
