@@ -59,7 +59,7 @@ def play_wordle(hidden_word):
                 allowed[i] = { g_char }
 
         possible = find_possible(words, allowed, must_appear)
-        guess = suggestions(words, possible, allowed, freq)[0]
+        guess = suggestions(possible, possible, allowed, freq)[0]
 
     return NOT_SOLVED_PENALTY
 

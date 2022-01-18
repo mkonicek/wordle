@@ -43,4 +43,4 @@ while True:
     possible = find_possible(words, allowed, must_appear)
 
     print(f"OK, there are now {len(possible)} possible words:", ', '. join(possible))
-    print(f"How about:", ', '.join(suggestions(words, possible, allowed, freq)))
+    print(f"How about:", ', '.join(suggestions(possible, possible, allowed, freq)))
