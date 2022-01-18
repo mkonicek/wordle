@@ -17,8 +17,11 @@ for i in range(len(allowed)):
     for c in freq.keys():
         allowed[i].add(c)
 
-print(f"How about:", ', '.join(suggestions(words, [], allowed, freq)))
+# suggestion = join(suggestions(words, [], allowed, freq)
+suggestion = 'learn' # Works better
+print(f"How about:", suggestion)
 
+attempt = 0
 while True:
     guess = input("What word did you guess? ")
     for i in range(len(guess)):
@@ -43,4 +46,8 @@ while True:
     possible = find_possible(words, allowed, must_appear)
 
     print(f"OK, there are now {len(possible)} possible words:", ', '. join(possible))
-    print(f"How about:", ', '.join(suggestions(possible, possible, allowed, freq)))
+    if attempt == 0:
+        print("How about: sight")
+    else:
+        print(f"How about:", ', '.join(suggestions(possible, possible, allowed, freq)))
+    attempt = attempt + 1

@@ -37,9 +37,9 @@ def play_wordle(hidden_word):
     guess = suggestions(words, [], allowed, freq)[0]
     for attempt in range(MAX_ATTEMPTS):
         if attempt == 0:
-            guess = 'earns'
+            guess = 'learn'
         if attempt == 1:
-            guess = 'pilot'
+            guess = 'sight'
         res = try_guess(guess, hidden_word)
 
         if res == 'g' * len(guess):
