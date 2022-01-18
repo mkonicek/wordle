@@ -18,7 +18,7 @@ for i in range(len(allowed)):
         allowed[i].add(c)
 
 # suggestion = join(suggestions(words, [], allowed, freq)
-suggestion = 'learn' # Works better
+suggestion = 'coast' # Works better
 print(f"How about:", suggestion)
 
 attempt = 0
@@ -47,7 +47,7 @@ while True:
 
     print(f"OK, there are now {len(possible)} possible words:", ', '. join(possible))
     if attempt == 0:
-        print("How about: sight")
+        print("How about: liner")
     else:
         print(f"How about:", ', '.join(suggestions(possible, possible, allowed, freq)))
     attempt = attempt + 1

@@ -106,17 +106,53 @@ Average attempts: 4.162
 5 attemps: 776
 6 attemps: 233
 
-## Always use "earns" and "pilot" as the first two guesses
+## Always use "coast" and "liner" as the first two guesses - tradeoff
 
-These two words cover most of the top 10 most letters in English:
+These are the 10 most common characters in English based on a [webpage I found](https://www3.nd.edu/~busiforc/handouts/cryptography/letterfrequencies.html):
 e a r i o t n s l c
+
+Here are some pairs of words which cover all of them:
+coast, liner
+react, lions
+score, latin
+sonic, alert
+
+We solve words in fewer attempts but there are now 59 more words we don't solve:
+
+Unsolved Wordles: 180
+Solved 95.78%
+Average attempts: 4.210
+1 attemps: 1
+2 attemps: 1
+3 attemps: 1399
+4 attemps: 1714
+5 attemps: 722
+6 attemps: 249
+
+## Always use "saint" and "older" as the first two guesses - tailored to our test set but still does not beat "learn" and "sight"
+
+These are the 10 most common characters in our words file:
+e s a r o l i t n d (The only difference is c got replaced by d)
+
+Here are some pairs of words which cover all of them:
+intro, deals
+noted, lairs
+rails, noted
+saint, older
+satin, older
+tails, drone
+tilde, sonar
+tired, salon
+tried, salon
+
+This makes us more likely to solve in 3 attempts but slightly increases our unsolved count:
 
 Unsolved Wordles: 148
 Solved 96.53%
-Average attempts: 4.167
+Average attempts: 4.150
 1 attemps: 1
 2 attemps: 1
-3 attemps: 1424
-4 attemps: 1685
-5 attemps: 760
-6 attemps: 247
+3 attemps: 1428
+4 attemps: 1745
+5 attemps: 702
+6 attemps: 241
