@@ -10,7 +10,7 @@ def suggestion_score(word, possible, freq):
         score = score + f
     return score
 
-def suggestion(words, possible, allowed, freq):
+def suggestions(words, possible, allowed, freq):
     suggestion_words = [w for w in words if satisfies_allowed(w, allowed)]
     suggestions = [(w, suggestion_score(w, possible, freq)) for w in suggestion_words]
     suggestions_sorted_with_scores = sorted(suggestions, key=lambda t: t[1], reverse=True)[:50]

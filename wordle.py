@@ -4,24 +4,9 @@
 #
 # python3 wordle.py
 
-from suggestion import suggestion
-
-def load_words():
-    words = []
-    with open('words.txt') as f:
-        for line in f:
-            words.append(line.strip())
-    return words
-
-def character_frequencies(words):
-    freq = {}
-    for word in words:
-        for char in word:
-            if char in freq:
-                freq[char] = freq[char] + 1
-            else:
-                freq[char] = 1
-    return freq
+from load import character_frequencies, load_words
+from possible import find_possible
+from suggestions import suggestions
 
 words = load_words()
 freq = character_frequencies(words)    
@@ -30,21 +15,9 @@ allowed = [set(), set(), set(), set(), set()]
 must_appear = set()
 for i in range(len(allowed)):
     for c in freq.keys():
-        allowed[i].add(c)  
+        allowed[i].add(c)
 
-def is_possible(word, allowed, must_appear):
-    for i in range(len(word)):
-        if word[i] not in allowed[i]:
-            return False
-    for m in must_appear:
-        if m not in word:
-            return False
-    return True
-
-def find_possible(words, allowed, must_appear):
-    return [word for word in words if is_possible(word, allowed, must_appear)]
-
-print(f"How about:", ', '.join(suggestion(words, [], allowed, freq)))
+print(f"How about:", ', '.join(suggestions(words, [], allowed, freq)))
 
 while True:
     guess = input("What word did you guess? ")
@@ -70,4 +43,4 @@ while True:
     possible = find_possible(words, allowed, must_appear)
 
     print(f"OK, there are now {len(possible)} possible words:", ', '. join(possible))
-    print(f"How about:", ', '.join(suggestion(words, possible, allowed, freq)))
+    print(f"How about:", ', '.join(suggestions(words, possible, allowed, freq)))
