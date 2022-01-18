@@ -105,3 +105,15 @@ Average attempts: 4.162
 4 attemps: 1864
 5 attemps: 776
 6 attemps: 233
+
+## Always use "orate" and "sight" as the first two guesses - worse
+
+Unsolved Wordles: 216
+Solved 94.94%
+Average attempts: 4.495
+1 attemps: 1
+2 attemps: 1
+3 attemps: 921
+4 attemps: 1758
+5 attemps: 998
+6 attemps: 371
