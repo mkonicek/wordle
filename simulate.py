@@ -34,8 +34,12 @@ def play_wordle(hidden_word):
         for c in freq.keys():
             allowed[i].add(c)
             
-    guess = random.choice(suggestions(words, [], allowed, freq))
+    guess = suggestions(words, [], allowed, freq)[0]
     for attempt in range(MAX_ATTEMPTS):
+        if attempt == 0:
+            guess = 'learn'
+        if attempt == 1:
+            guess = 'sight'
         res = try_guess(guess, hidden_word)
 
         if res == 'g' * len(guess):
@@ -62,7 +66,7 @@ def play_wordle(hidden_word):
                 allowed[i] = { g_char }
 
         possible = find_possible(words, allowed, must_appear)
-        guess = random.choice(suggestions(possible, possible, allowed, freq))
+        guess = suggestions(possible, possible, allowed, freq)[0]
 
     return NOT_SOLVED_PENALTY
 

@@ -1,4 +1,4 @@
-# Stats
+# Stats - 4266 games of Wordle
 
 Stats for different tweaks to the solver.
 
@@ -90,3 +90,18 @@ Average attempts: 4.286
 4 attemps: 1660
 5 attemps: 937
 6 attemps: 284
+
+## Always use "learn" and "sight" as the first two guesses - best
+
+Wovels have frequency lowered to 1/16.
+We get almost the same result with vowels frequency lowered to 1/2.
+
+Unsolved Wordles: 121
+Solved 97.16%
+Average attempts: 4.162
+1 attemps: 1
+2 attemps: 1
+3 attemps: 1270
+4 attemps: 1864
+5 attemps: 776
+6 attemps: 233
