@@ -3,6 +3,9 @@
 from load import character_frequencies, load_words
 from possible import find_possible
 from suggestions import suggestions
+import random
+
+random.seed(2003)
 
 MAX_ATTEMPTS = 6
 # Not solving is bad. Make it contribute more to the average.
@@ -22,7 +25,7 @@ def try_guess(guess, hidden_word):
             res = res + "y"
         else:
             res = res + "b"
-    return res
+    return res    
 
 def play_wordle(hidden_word):
     allowed = [set(), set(), set(), set(), set()]
@@ -31,7 +34,7 @@ def play_wordle(hidden_word):
         for c in freq.keys():
             allowed[i].add(c)
             
-    guess = suggestions(words, [], allowed, freq)[0]
+    guess = random.choice(suggestions(words, [], allowed, freq))
     for attempt in range(MAX_ATTEMPTS):
         res = try_guess(guess, hidden_word)
 
@@ -59,7 +62,7 @@ def play_wordle(hidden_word):
                 allowed[i] = { g_char }
 
         possible = find_possible(words, allowed, must_appear)
-        guess = suggestions(possible, possible, allowed, freq)[0]
+        guess = random.choice(suggestions(possible, possible, allowed, freq))
 
     return NOT_SOLVED_PENALTY
 

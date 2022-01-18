@@ -24,7 +24,7 @@ def suggestions(words, possible, allowed, freq):
         if not is_permutation:
             suggestions_dedup.append(suggestions_sorted[i])
 
-    return suggestions_dedup[:5]
+    return suggestions_dedup[:3]
 
 def satisfies_allowed(word, allowed):
     for i in range(len(word)):

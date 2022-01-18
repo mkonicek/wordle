@@ -63,7 +63,7 @@ Average attempts: 4.622
 5 attemps: 1339
 6 attemps: 491
 
-## Pick suggestion from possible words only - better
+## Pick suggestion from possible words only - best so far
 
 Wovels have frequency lowered to 1/16.
 
@@ -76,3 +76,17 @@ Average attempts: 4.274
 4 attemps: 1714
 5 attemps: 939
 6 attemps: 317
+
+## Pick one of top 3 suggestions at random - slighly worse as expected
+
+Wovels have frequency lowered to 1/16.
+
+Unsolved Wordles: 177
+Solved 95.85%
+Average attempts: 4.286
+1 attemps: 1
+2 attemps: 135
+3 attemps: 1072
+4 attemps: 1660
+5 attemps: 937
+6 attemps: 284
