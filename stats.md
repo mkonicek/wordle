@@ -106,14 +106,17 @@ Average attempts: 4.162
 5 attemps: 776
 6 attemps: 233
 
-## Always use "orate" and "sight" as the first two guesses - worse
+## Always use "earns" and "pilot" as the first two guesses
 
-Unsolved Wordles: 216
-Solved 94.94%
-Average attempts: 4.495
+These two words cover most of the top 10 most letters in English:
+e a r i o t n s l c
+
+Unsolved Wordles: 148
+Solved 96.53%
+Average attempts: 4.167
 1 attemps: 1
 2 attemps: 1
-3 attemps: 921
-4 attemps: 1758
-5 attemps: 998
-6 attemps: 371
+3 attemps: 1424
+4 attemps: 1685
+5 attemps: 760
+6 attemps: 247
