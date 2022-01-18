@@ -129,6 +129,30 @@ Average attempts: 4.210
 5 attemps: 722
 6 attemps: 249
 
+## Always use "lions" and "earth" as the first two guesses - worse
+
+These are the 10 most common characters in English based on another [webpage I found](https://www.wired.com/story/best-wordle-tips/):
+e a r i o t n s l h (The only difference is c is replaced by h.)
+
+Here are some pairs of words which cover all of them:
+latin, horse
+lions, earth
+lions, heart
+short, alien
+stale, rhino
+
+We solve words in fewer attempts but there are now 59 more words we don't solve:
+
+Unsolved Wordles: 178
+Solved 95.83%
+Average attempts: 4.227
+1 attemps: 1
+2 attemps: 1
+3 attemps: 1374
+4 attemps: 1694
+5 attemps: 757
+6 attemps: 261
+
 ## Always use "saint" and "older" as the first two guesses - tailored to our test set but still does not beat "learn" and "sight"
 
 These are the 10 most common characters in our words file:

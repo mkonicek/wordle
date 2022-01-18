@@ -8,6 +8,14 @@ top_internet = "eariotnslc"
 # score, latin
 # sonic, alert
 
+top_internet_2 = "eariotnshl"
+#
+# latin, horse
+# lions, earth
+# lions, heart
+# short, alien
+# stale, rhino
+
 top_our_data = "esarolitnd"
 # =>
 # clean, riots
@@ -25,6 +33,6 @@ for i in range(len(words)):
     for j in range(i):
         word1 = words[i]
         word2 = words[j]
-        if set(word1 + word2) == set(top_our_data):
+        if set(word1 + word2) == set(top_internet):
             print(f"{word1}, {word2}")
 
