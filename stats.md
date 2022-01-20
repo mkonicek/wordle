@@ -180,3 +180,54 @@ Average attempts: 4.150
 4 attemps: 1745
 5 attemps: 702
 6 attemps: 241
+
+## Optimal (possible, possible)
+
+Played 500 games of Wordle.
+Unsolved Wordles: 4
+2 attemps: 28
+3 attemps: 213
+4 attemps: 204
+5 attemps: 40
+6 attemps: 11
+
+Played 500 games of Wordle.
+Unsolved Wordles: 23
+1 attemps: 1
+2 attemps: 32
+3 attemps: 127
+4 attemps: 196
+5 attemps: 92
+6 attemps: 29
+
+Played 500 games of Wordle.
+Unsolved Wordles: 6
+2 attemps: 19
+3 attemps: 198
+4 attemps: 204
+5 attemps: 59
+6 attemps: 14
+
+Played 500 games of Wordle.
+Unsolved Wordles: 22
+2 attemps: 7
+3 attemps: 123
+4 attemps: 212
+5 attemps: 99
+6 attemps: 37
+
+Played 500 games of Wordle.
+Unsolved Wordles: 21
+2 attemps: 17
+3 attemps: 153
+4 attemps: 196
+5 attemps: 83
+6 attemps: 30
+
+Played 500 games of Wordle.
+Unsolved Wordles: 14
+2 attemps: 27
+3 attemps: 172
+4 attemps: 194
+5 attemps: 77
+6 attemps: 16

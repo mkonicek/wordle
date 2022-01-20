@@ -1,7 +1,8 @@
 # Simulate games of Wordle and evaluate performance of the solver
 
 from load import character_frequencies, load_words
-from possible import find_possible
+from possible import find_possible, try_guess
+from suggestion_optimal import suggestion_optimal
 from suggestions import suggestions
 import random
 
@@ -14,19 +15,6 @@ NOT_SOLVED_PENALTY = 10
 words = load_words()
 freq = character_frequencies(words)
 
-def try_guess(guess, hidden_word):    
-    if len(guess) != len(hidden_word):
-        raise "Guess and hidden word must have the same length"
-    res = ""
-    for i in range(len(guess)):
-        if guess[i] == hidden_word[i]:
-            res = res + "g"
-        elif guess[i] in hidden_word:
-            res = res + "y"
-        else:
-            res = res + "b"
-    return res    
-
 def play_wordle(hidden_word):
     allowed = [set(), set(), set(), set(), set()]
     must_appear = set()
@@ -34,12 +22,11 @@ def play_wordle(hidden_word):
         for c in freq.keys():
             allowed[i].add(c)
             
-    guess = suggestions(words, [], allowed, freq)[0]
+    #guess = suggestions(words, [], allowed, freq)[0]
+    guess = 'raise'
     for attempt in range(MAX_ATTEMPTS):
-        if attempt == 0:
-            guess = 'coast'
-        if attempt == 1:
-            guess = 'liner'
+        #if attempt == 1:
+        #    guess = 'liner'
         res = try_guess(guess, hidden_word)
 
         if res == 'g' * len(guess):
@@ -66,7 +53,7 @@ def play_wordle(hidden_word):
                 allowed[i] = { g_char }
 
         possible = find_possible(words, allowed, must_appear)
-        guess = suggestions(possible, possible, allowed, freq)[0]
+        guess = suggestion_optimal(words, possible, allowed, must_appear) # Too slow :(
 
     return NOT_SOLVED_PENALTY
 
@@ -93,7 +80,7 @@ def print_stats(stats):
     print(f"Average attempts: {weighted_sum / total_count:.3f}")    
 
 print(f"Simulating {len(words)} games of Wordle..")
-for i in range(len(words)):
+for i in range(3500, len(words)):
     word = words[i]
     attempts = play_wordle(word)
     if attempts not in stats:
@@ -102,7 +89,7 @@ for i in range(len(words)):
         stats[attempts] = stats[attempts] + 1
 
     # Print progress
-    if (i + 1) % 100 == 0:
+    if (i + 1) % 10 == 0:
         print(f"Played {i + 1} games of Wordle..")
 
 print_stats(stats)

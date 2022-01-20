@@ -6,6 +6,7 @@
 
 from load import character_frequencies, load_words
 from possible import find_possible
+from suggestion_optimal import suggestion_optimal
 from suggestions import suggestions
 
 words = load_words()
@@ -18,7 +19,7 @@ for i in range(len(allowed)):
         allowed[i].add(c)
 
 # suggestion = join(suggestions(words, [], allowed, freq)
-suggestion = 'coast' # Works better
+suggestion = 'raise'
 print(f"How about:", suggestion)
 
 attempt = 0
@@ -46,8 +47,11 @@ while True:
     possible = find_possible(words, allowed, must_appear)
 
     print(f"OK, there are now {len(possible)} possible words:", ', '. join(possible))
-    if attempt == 0:
-        print("How about: liner")
-    else:
-        print(f"How about:", ', '.join(suggestions(possible, possible, allowed, freq)))
+    if len(possible) == 1:
+        exit()
+    #if attempt == 0:
+    #    print("How about: liner")
+    #else:
+    #print(f"How about:", ', '.join(suggestions(words, possible, allowed, freq)))
+    print(f"How about:", suggestion_optimal(words, possible, allowed, must_appear))
     attempt = attempt + 1
