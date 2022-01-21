@@ -9,9 +9,9 @@ from possible import find_possible
 from suggestion_optimal import suggestion_optimal
 from suggestions import suggestions
 
-from word_list import known_solutions, allowed_guesses
+from word_list import wordle_known_solutions, wordle_allowed_guesses
 
-words = allowed_guesses #load_words()
+words = wordle_allowed_guesses #load_words()
 freq = character_frequencies(words)    
 
 allowed = [set(), set(), set(), set(), set()]
@@ -46,7 +46,7 @@ while True:
         if res == 'g':
             allowed[i] = { g_char }
 
-    possible = find_possible(known_solutions, allowed, must_appear)
+    possible = find_possible(wordle_known_solutions, allowed, must_appear)
 
     print(f"OK, there are now {len(possible)} possible words:", ', '. join(possible))
     if len(possible) == 1:
