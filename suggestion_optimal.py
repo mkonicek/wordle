@@ -20,7 +20,7 @@ def suggestion_optimal(words, possible, allowed, must_appear):
             # The best guess is the one which eliminates the most words on average
             best_guess = guess
         #print(f"==== Average possibilities left for {guess} is {total_for_guess / len(possible)}")
-        if i % 100 == 0:
+        if i % 500 == 0:
             print(f"Looked at {i} words. Best so far is {best_guess} with {lowest_total / len(possible):.2f} remaining words on average.")
     return best_guess
 

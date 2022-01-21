@@ -9,7 +9,9 @@ from possible import find_possible
 from suggestion_optimal import suggestion_optimal
 from suggestions import suggestions
 
-words = load_words()
+from word_list import known_solutions, allowed_guesses
+
+words = allowed_guesses #load_words()
 freq = character_frequencies(words)    
 
 allowed = [set(), set(), set(), set(), set()]
@@ -44,7 +46,7 @@ while True:
         if res == 'g':
             allowed[i] = { g_char }
 
-    possible = find_possible(words, allowed, must_appear)
+    possible = find_possible(known_solutions, allowed, must_appear)
 
     print(f"OK, there are now {len(possible)} possible words:", ', '. join(possible))
     if len(possible) == 1:

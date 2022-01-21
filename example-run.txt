@@ -1,0 +1,37 @@
+~/code/wordle [main] $ python3 wordle.py
+
+What word did you guess? raise
+What was the colour of character r (b, y, g)? y
+What was the colour of character a (b, y, g)? b
+What was the colour of character i (b, y, g)? g
+What was the colour of character s (b, y, g)? b
+What was the colour of character e (b, y, g)? b
+
+OK, there are now 31 possible words: brick, bring, brink, briny, chirp, crick, crimp, drift, drill, drily, drink, flirt, frill, grill, grimm, grimy, grind, krill, prick, pricy, print, prior, privy, quirk, third, trick, trill, twirl, whirl, whirr, wring
+
+Looked at 500 words. Best so far is aptly with 5.06 remaining words on average.
+Looked at 1000 words. Best so far is clung with 4.10 remaining words on average.
+Looked at 1500 words. Best so far is clung with 4.10 remaining words on average.
+Looked at 2000 words. Best so far is glyph with 3.65 remaining words on average.
+Looked at 2500 words. Best so far is glyph with 3.65 remaining words on average.
+
+What word did you guess? glyph
+What was the colour of character g (b, y, g)? b
+What was the colour of character l (b, y, g)? b
+What was the colour of character y (b, y, g)? b
+What was the colour of character p (b, y, g)? y
+What was the colour of character h (b, y, g)? b
+
+OK, there are now 4 possible words: crimp, prick, print, prior
+
+Looked at 100 words. Best so far is aaron with 1.50 remaining words on average.
+Looked at 200 words. Best so far is amino with 1.00 remaining words on average.
+
+What word did you guess? amino
+What was the colour of character a (b, y, g)? b
+What was the colour of character m (b, y, g)? b
+What was the colour of character i (b, y, g)? g
+What was the colour of character n (b, y, g)? b
+What was the colour of character o (b, y, g)? b
+
+OK, there are now 1 possible words: prick
