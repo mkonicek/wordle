@@ -10,7 +10,7 @@ def suggestion_optimal(words, possible, allowed, must_appear):
         total_for_guess = 0
 
         # Imagine we guess a word, see how many options would remain on average
-        for hidden_word in possible:            
+        for hidden_word in possible:         
             new_count = new_possible_count(possible, guess, hidden_word, set(hidden_word), allowed, must_appear)
             #print(f"hidden_word {hidden_word}, guess {guess} would give us {new_count} possible words left")
             total_for_guess = total_for_guess + new_count
@@ -20,8 +20,9 @@ def suggestion_optimal(words, possible, allowed, must_appear):
             # The best guess is the one which eliminates the most words on average
             best_guess = guess
         #print(f"==== Average possibilities left for {guess} is {total_for_guess / len(possible)}")
-        if i % 500 == 0:
-            print(f"Looked at {i} words. Best so far is {best_guess} with {lowest_total / len(possible):.2f} remaining words on average.")
+        #if i % 500 == 0:
+        #    print(f"Looked at {i} words. Best so far is {best_guess} with {lowest_total / len(possible):.2f} remaining words on average.")
+    print(f"Looked at {len(words)} words. Best is {best_guess} with {lowest_total / len(possible):.2f} remaining words on average.")    
     return best_guess
 
 def new_possible_count(possible, guess, hidden_word, hidden_word_set, allowed, must_appear):

@@ -98,13 +98,24 @@ We get almost the same result with vowels frequency lowered to 1/2.
 
 Unsolved Wordles: 121
 Solved 97.16%
-Average attempts: 4.162
 1 attemps: 1
 2 attemps: 1
 3 attemps: 1270
 4 attemps: 1864
 5 attemps: 776
 6 attemps: 233
+
+combo:
+
+1 attemps: 1
+2 attemps: 1
+3 attemps: 1017
+4 attemps: 2430
+5 attemps: 666
+6 attemps: 117
+Unsolved Wordles: 34
+Solved 99.20%
+Average attempts: 3.971
 
 ## Always use "coast" and "liner" as the first two guesses - tradeoff
 
@@ -153,6 +164,18 @@ Average attempts: 4.227
 5 attemps: 757
 6 attemps: 261
 
+combo:
+
+1 attemps: 1
+2 attemps: 1
+3 attemps: 1168
+4 attemps: 2180
+5 attemps: 681
+6 attemps: 168
+Unsolved Wordles: 67
+Solved 98.40%
+Average attempts: 3.963
+
 ## Always use "saint" and "older" as the first two guesses - tailored to our test set but still does not beat "learn" and "sight"
 
 These are the 10 most common characters in our words file:
@@ -181,53 +204,77 @@ Average attempts: 4.150
 5 attemps: 702
 6 attemps: 241
 
-## Optimal (possible, possible)
+## Wordle word list, fast suggestion (learn, sight)
 
-Played 500 games of Wordle.
-Unsolved Wordles: 4
-2 attemps: 28
-3 attemps: 213
-4 attemps: 204
-5 attemps: 40
-6 attemps: 11
+Played 200 games of Wordle..
+3 attemps: 50
+4 attemps: 98
+5 attemps: 42
+6 attemps: 7
+Played 200 games of Wordle.
+Unsolved Wordles: 3
+Solved 98.50%
+Average attempts: 4.120
 
-Played 500 games of Wordle.
-Unsolved Wordles: 23
-1 attemps: 1
-2 attemps: 32
-3 attemps: 127
-4 attemps: 196
-5 attemps: 92
-6 attemps: 29
+## Wordle word list, combo of fast (top 50) and then slow suggestion
 
-Played 500 games of Wordle.
-Unsolved Wordles: 6
-2 attemps: 19
-3 attemps: 198
-4 attemps: 204
-5 attemps: 59
-6 attemps: 14
+raise:
 
-Played 500 games of Wordle.
-Unsolved Wordles: 22
-2 attemps: 7
-3 attemps: 123
-4 attemps: 212
-5 attemps: 99
-6 attemps: 37
+Played 200 games of Wordle..
+Statistics:
+2 attemps: 6
+3 attemps: 68
+4 attemps: 110
+5 attemps: 13
+6 attemps: 3
+Unsolved Wordles: 0
+Solved 100.00%
+Average attempts: 3.695
 
-Played 500 games of Wordle.
-Unsolved Wordles: 21
-2 attemps: 17
-3 attemps: 153
-4 attemps: 196
-5 attemps: 83
-6 attemps: 30
+lions, earth:
 
-Played 500 games of Wordle.
-Unsolved Wordles: 14
-2 attemps: 27
-3 attemps: 172
-4 attemps: 194
-5 attemps: 77
-6 attemps: 16
+Played 200 games of Wordle..
+Statistics:
+3 attemps: 78
+4 attemps: 100
+5 attemps: 19
+6 attemps: 2
+Unsolved Wordles: 1
+Solved 99.50%
+Average attempts: 3.724
+
+Played 2315 games of Wordle..
+Statistics:
+2 attemps: 1
+3 attemps: 816
+4 attemps: 1253
+5 attemps: 206
+6 attemps: 32
+Unsolved Wordles: 7
+Solved 99.70%
+Average attempts: 3.763
+
+lions, earth naive:
+
+Played 2315 games of Wordle..
+Statistics:
+2 attemps: 1
+3 attemps: 837
+4 attemps: 1012
+5 attemps: 365
+6 attemps: 82
+Unsolved Wordles: 18
+Solved 99.22%
+Average attempts: 3.865
+
+## Wordle word list, optimal (very slow)
+
+Played 200 games of Wordle..
+Statistics:
+2 attemps: 5
+3 attemps: 65
+4 attemps: 114
+5 attemps: 16
+Unsolved Wordles: 0
+Solved 100.00%
+Average attempts: 3.705

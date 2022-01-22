@@ -1,0 +1,4 @@
+[package]
+name = "Wordle solver"
+version = "0.1.0"
+authors = ["Martin Konicek <martin.konicek@example.com>"]

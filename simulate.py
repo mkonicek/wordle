@@ -4,15 +4,17 @@ from load import character_frequencies, load_words
 from possible import find_possible, try_guess
 from suggestion_optimal import suggestion_optimal
 from suggestions import suggestions
+from word_list import wordle_known_solutions
 import random
 
 random.seed(2003)
 
 MAX_ATTEMPTS = 6
-# Not solving is bad. Make it contribute more to the average.
 NOT_SOLVED_PENALTY = 10
 
+#words = wordle_known_solutions
 words = load_words()
+random.shuffle(words)
 freq = character_frequencies(words)
 
 def play_wordle(hidden_word):
@@ -22,11 +24,8 @@ def play_wordle(hidden_word):
         for c in freq.keys():
             allowed[i].add(c)
             
-    #guess = suggestions(words, [], allowed, freq)[0]
-    guess = 'raise'
+    guess = 'learn'
     for attempt in range(MAX_ATTEMPTS):
-        #if attempt == 1:
-        #    guess = 'liner'
         res = try_guess(guess, hidden_word)
 
         if res == 'g' * len(guess):
@@ -52,8 +51,15 @@ def play_wordle(hidden_word):
             if ans == 'g':
                 allowed[i] = { g_char }
 
-        possible = find_possible(words, allowed, must_appear)
-        guess = suggestion_optimal(words, possible, allowed, must_appear) # Too slow :(
+        if attempt == 0:
+            guess = 'sight'
+        else:
+            possible = find_possible(words, allowed, must_appear)
+            if len(possible) == 1:
+                guess = possible[0]
+            else:
+                narrowed_list = suggestions(words, possible, allowed, freq)
+                guess = suggestion_optimal(narrowed_list, possible, allowed, must_appear)
 
     return NOT_SOLVED_PENALTY
 
@@ -63,7 +69,7 @@ def print_stats(stats):
     print("Statistics:")
     weighted_sum = 0
     total_count = 0
-    for attempts in range(MAX_ATTEMPTS + 1):
+    for attempts in range(MAX_ATTEMPTS + 2):
         count = stats.get(attempts)
         if count != None:
             print(f"{attempts} attemps: {count}")
@@ -72,17 +78,15 @@ def print_stats(stats):
     did_not_solve = stats.get(NOT_SOLVED_PENALTY)
     if not did_not_solve:
         did_not_solve = 0
-    weighted_sum = weighted_sum + NOT_SOLVED_PENALTY * did_not_solve
-    total_count = total_count + did_not_solve  
-    print(f"Played {total_count} games of Wordle.")     
     print(f"Unsolved Wordles: {did_not_solve}")
     print(f"Solved {(((total_count - did_not_solve) / total_count) * 100):.2f}%")
     print(f"Average attempts: {weighted_sum / total_count:.3f}")    
 
-print(f"Simulating {len(words)} games of Wordle..")
-for i in range(3500, len(words)):
-    word = words[i]
-    attempts = play_wordle(word)
+sim_words = words
+print("Playing with", sim_words)
+print(f"Simulating {len(sim_words)} games of Wordle..")
+for i in range(len(sim_words)):
+    attempts = play_wordle(sim_words[i])
     if attempts not in stats:
         stats[attempts] = 1
     else:

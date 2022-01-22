@@ -11,7 +11,7 @@ from suggestions import suggestions
 
 from word_list import wordle_known_solutions, wordle_allowed_guesses
 
-words = wordle_allowed_guesses #load_words()
+words = wordle_known_solutions #load_words()
 freq = character_frequencies(words)    
 
 allowed = [set(), set(), set(), set(), set()]
@@ -46,7 +46,7 @@ while True:
         if res == 'g':
             allowed[i] = { g_char }
 
-    possible = find_possible(wordle_known_solutions, allowed, must_appear)
+    possible = find_possible(words, allowed, must_appear)
 
     print(f"OK, there are now {len(possible)} possible words:", ', '. join(possible))
     if len(possible) == 1:
