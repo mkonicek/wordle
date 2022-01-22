@@ -91,6 +91,21 @@ Average attempts: 4.286
 5 attemps: 937
 6 attemps: 284
 
+## Use "raise" as first guess
+
+combo:
+
+Statistics:
+1 attemps: 1
+2 attemps: 91
+3 attemps: 1168
+4 attemps: 2077
+5 attemps: 657
+6 attemps: 177
+Unsolved Wordles: 95
+Solved 97.72%
+Average attempts: 3.918
+
 ## Always use "learn" and "sight" as the first two guesses - best
 
 Wovels have frequency lowered to 1/16.
@@ -105,7 +120,9 @@ Solved 97.16%
 5 attemps: 776
 6 attemps: 233
 
-combo:
+---
+
+learn, sight combo:
 
 1 attemps: 1
 2 attemps: 1
@@ -116,6 +133,8 @@ combo:
 Unsolved Wordles: 34
 Solved 99.20%
 Average attempts: 3.971
+
+---
 
 ## Always use "coast" and "liner" as the first two guesses - tradeoff
 

@@ -25,7 +25,7 @@ fn main() {
     for c in freq.keys() {
       initial_allowed_set.insert(*c);
     }
-    let mut allowed = vec![initial_allowed_set.clone(), initial_allowed_set.clone()];
+    let mut allowed = vec![initial_allowed_set.clone(), initial_allowed_set.clone(), initial_allowed_set.clone(), initial_allowed_set.clone(), initial_allowed_set.clone()];
     allowed[1] = vec!['c'].into_iter().collect();
     println!("freq {:?}", freq);
     println!("allowed {:?}", allowed);
