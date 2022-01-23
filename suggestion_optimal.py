@@ -1,5 +1,5 @@
 import copy
-from possible import find_possible, try_guess
+from possible import find_possible, is_possible, try_guess
 
 def suggestion_optimal(words, possible, allowed, must_appear):
     lowest_total = 1000*1000
@@ -20,8 +20,8 @@ def suggestion_optimal(words, possible, allowed, must_appear):
             # The best guess is the one which eliminates the most words on average
             best_guess = guess
         #print(f"==== Average possibilities left for {guess} is {total_for_guess / len(possible)}")
-        #if i % 500 == 0:
-        #    print(f"Looked at {i} words. Best so far is {best_guess} with {lowest_total / len(possible):.2f} remaining words on average.")
+        if i % 500 == 0:
+            print(f"Looked at {i} words. Best so far is {best_guess} with {lowest_total / len(possible):.2f} remaining words on average.")
     print(f"Looked at {len(words)} words. Best is {best_guess} with {lowest_total / len(possible):.2f} remaining words on average.")    
     return best_guess
 
@@ -45,18 +45,4 @@ def new_possible_count(possible, guess, hidden_word, hidden_word_set, allowed, m
                 if g_char in new_allowed[j]:
                     new_allowed[j].remove(g_char)
 
-    count_possible = 0
-    for w in possible:
-        if is_possible_faster(w, new_allowed, new_must_appear):
-            count_possible = count_possible + 1
-    return count_possible
-    #return len(find_possible(possible, new_allowed, new_must_appear))
-
-def is_possible_faster(word, allowed, must_appear):
-    for i in range(len(word)):
-        if word[i] not in allowed[i]:
-            return False
-    for m in must_appear:
-        if m not in word:
-            return False
-    return True    
+    return len(find_possible(possible, new_allowed, new_must_appear))

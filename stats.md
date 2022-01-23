@@ -134,6 +134,19 @@ Unsolved Wordles: 34
 Solved 99.20%
 Average attempts: 3.971
 
+and if we only look at 10 suggestions, we get 5x faster runtime and slightly worse results:
+
+Statistics:
+1 attemps: 1
+2 attemps: 1
+3 attemps: 1059
+4 attemps: 2309
+5 attemps: 708
+6 attemps: 137
+Unsolved Wordles: 51
+Solved 98.79%
+Average attempts: 3.981
+
 ---
 
 ## Always use "coast" and "liner" as the first two guesses - tradeoff

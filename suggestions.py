@@ -11,9 +11,8 @@ def suggestion_score(word, possible, freq):
     return score
 
 def suggestions(words, possible, allowed, freq):
-    suggestion_words = [w for w in words if satisfies_allowed(w, allowed)]
-    suggestions = [(w, suggestion_score(w, possible, freq)) for w in suggestion_words]
-    suggestions_sorted_with_scores = sorted(suggestions, key=lambda t: t[1], reverse=True)[:120]
+    suggestions = [(w, suggestion_score(w, possible, freq)) for w in words if satisfies_allowed(w, allowed)]
+    suggestions_sorted_with_scores = sorted(suggestions, key=lambda t: t[1], reverse=True)[:80]
     suggestions_sorted = [w for (w, s) in suggestions_sorted_with_scores]
     suggestions_dedup = []
     for i in range(len(suggestions_sorted)):

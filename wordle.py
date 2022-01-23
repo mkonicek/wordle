@@ -25,6 +25,7 @@ suggestion = 'raise'
 print(f"How about:", suggestion)
 
 attempt = 0
+possible = wordle_known_solutions
 while True:
     guess = input("What word did you guess? ")
     for i in range(len(guess)):
@@ -46,14 +47,17 @@ while True:
         if res == 'g':
             allowed[i] = { g_char }
 
-    possible = find_possible(words, allowed, must_appear)
+    possible = find_possible(possible, allowed, must_appear)
 
-    print(f"OK, there are now {len(possible)} possible words:", ', '. join(possible))
+    print(
+      f"OK, there are now {len(possible)} possible words:",
+      ', '. join(possible)
+    )
     if len(possible) == 1:
         exit()
-    #if attempt == 0:
-    #    print("How about: liner")
-    #else:
-    #print(f"How about:", ', '.join(suggestions(words, possible, allowed, freq)))
-    print(f"How about:", suggestion_optimal(words, possible, allowed, must_appear))
-    attempt = attempt + 1
+    if attempt == 100:
+       print("How about: sight")
+    else:
+        #narrowed_list = suggestions(words, possible, allowed, freq)
+        guess = suggestion_optimal(words, possible, allowed, must_appear)
+        print(f"How about: ", guess)

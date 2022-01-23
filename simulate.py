@@ -12,8 +12,8 @@ random.seed(2003)
 MAX_ATTEMPTS = 6
 NOT_SOLVED_PENALTY = 10
 
-#words = wordle_known_solutions
-words = load_words()
+words = wordle_known_solutions
+#words = load_words()
 random.shuffle(words)
 freq = character_frequencies(words)
 
@@ -24,6 +24,7 @@ def play_wordle(hidden_word):
         for c in freq.keys():
             allowed[i].add(c)
             
+    possible = words    
     guess = 'learn'
     for attempt in range(MAX_ATTEMPTS):
         res = try_guess(guess, hidden_word)
@@ -54,11 +55,12 @@ def play_wordle(hidden_word):
         if attempt == 0:
             guess = 'sight'
         else:
-            possible = find_possible(words, allowed, must_appear)
+            possible = find_possible(possible, allowed, must_appear)
             if len(possible) == 1:
                 guess = possible[0]
             else:
                 narrowed_list = suggestions(words, possible, allowed, freq)
+                #guess = narrowed_list[0]
                 guess = suggestion_optimal(narrowed_list, possible, allowed, must_appear)
 
     return NOT_SOLVED_PENALTY
@@ -69,7 +71,7 @@ def print_stats(stats):
     print("Statistics:")
     weighted_sum = 0
     total_count = 0
-    for attempts in range(MAX_ATTEMPTS + 2):
+    for attempts in range(MAX_ATTEMPTS + 1):
         count = stats.get(attempts)
         if count != None:
             print(f"{attempts} attemps: {count}")
