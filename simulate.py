@@ -24,8 +24,8 @@ def play_wordle(hidden_word):
         for c in freq.keys():
             allowed[i].add(c)
             
-    possible = words    
-    guess = 'learn'
+    possible = words
+    guess = 'salet' # salet (unsolved 7, 3.590) # tears (unsolved 3, 3.595), 'raise' (unsolved 7 3.634), 'soare' (unsolved 6 3.672)
     for attempt in range(MAX_ATTEMPTS):
         res = try_guess(guess, hidden_word)
 
@@ -52,7 +52,7 @@ def play_wordle(hidden_word):
             if ans == 'g':
                 allowed[i] = { g_char }
 
-        if attempt == 0:
+        if attempt == 100:
             guess = 'sight'
         else:
             possible = find_possible(possible, allowed, must_appear)

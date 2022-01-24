@@ -21,7 +21,7 @@ for i in range(len(allowed)):
         allowed[i].add(c)
 
 # suggestion = join(suggestions(words, [], allowed, freq)
-suggestion = 'raise'
+suggestion = 'salet' # salet (unsolved 7, 3.590) # tears (unsolved 3, 3.595), 'raise' (unsolved 7 3.634), 'soare' (unsolved 6 3.672)
 print(f"How about:", suggestion)
 
 attempt = 0
