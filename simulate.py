@@ -59,7 +59,7 @@ def play_wordle(hidden_word):
             if len(possible) == 1:
                 guess = possible[0]
             else:
-                narrowed_list = suggestions(words, possible, allowed, freq)
+                narrowed_list = suggestions(possible, possible, allowed, freq)
                 #guess = narrowed_list[0]
                 guess = suggestion_optimal(narrowed_list, possible, allowed, must_appear)
 
@@ -97,5 +97,8 @@ for i in range(len(sim_words)):
     # Print progress
     if (i + 1) % 10 == 0:
         print(f"Played {i + 1} games of Wordle..")
+
+    if (i + 1) % 100 == 0:
+        print_stats(stats)
 
 print_stats(stats)

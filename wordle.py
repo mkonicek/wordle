@@ -58,6 +58,6 @@ while True:
     if attempt == 100:
        print("How about: sight")
     else:
-        narrowed_list = suggestions(words, possible, allowed, freq)
+        narrowed_list = suggestions(possible, possible, allowed, freq)
         guess = suggestion_optimal(narrowed_list, possible, allowed, must_appear)
         print(f"How about: ", guess)
